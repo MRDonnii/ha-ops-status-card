@@ -1,4 +1,4 @@
-const VERSION = "0.2.1";
+const VERSION = "0.3.0";
 
 const BAD_STATES = ["off", "critical", "error", "unavailable"];
 const WARN_STATES = ["warn", "warning"];
@@ -140,24 +140,23 @@ class HAOpsStatusCard extends HTMLElement {
       .head{margin-bottom:14px}
       .head strong{font-size:16px}
       .statuses{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-      .stile{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--edge);border-radius:14px}
-      .stile.bad{border-color:color-mix(in srgb,var(--danger) 45%,var(--edge))}
-      .stile-icon{--mdc-icon-size:22px;color:var(--good);flex:0 0 auto}
-      .stile.bad .stile-icon{color:var(--danger)}
+      .stile{--tone:var(--good);display:flex;align-items:center;gap:10px;padding:12px;border:1px solid color-mix(in srgb,var(--tone) 16%,var(--edge));border-left:3px solid var(--tone);border-radius:14px;background:linear-gradient(145deg,color-mix(in srgb,var(--tone) 6%,transparent),transparent 55%);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+      .stile.bad{--tone:var(--danger)}
+      .stile-icon{--mdc-icon-size:22px;color:var(--tone);flex:0 0 auto}
       .stile-text{min-width:0;display:flex;flex-direction:column}
       .stile-text b{font-size:12px}
       .stile-text span{font-size:10px;color:var(--secondary-text-color);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
       .section-title{margin:16px 0 8px;color:var(--secondary-text-color);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
       .actions{display:grid;grid-template-columns:repeat(${Math.max(actions.length, 1)},1fr);gap:8px}
-      .action-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 6px;border:1px solid var(--edge);border-radius:14px;background:transparent;color:var(--primary-text-color);cursor:pointer}
+      .action-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 6px;border:1px solid color-mix(in srgb,var(--accent) 16%,var(--edge));border-radius:14px;background:transparent;color:var(--primary-text-color);cursor:pointer}
       .action-btn:hover{border-color:var(--good);color:var(--good)}
       .action-btn ha-icon{--mdc-icon-size:20px}
       .action-btn span{font-size:10px;font-weight:700}
       .health{display:grid;grid-template-columns:repeat(${Math.max(healthItems.length, 1)},1fr);gap:8px;margin-top:8px}
-      .htile{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--edge);border-radius:13px;background:transparent;color:var(--primary-text-color);cursor:pointer;text-align:left}
-      .htile ha-icon{--mdc-icon-size:18px;color:var(--good)}
-      .htile.warn ha-icon{color:var(--warn)}
-      .htile.bad ha-icon{color:var(--danger)}
+      .htile{--tone:var(--good);display:flex;align-items:center;gap:8px;padding:10px;border:1px solid color-mix(in srgb,var(--tone) 16%,var(--edge));border-left:3px solid var(--tone);border-radius:13px;background:linear-gradient(145deg,color-mix(in srgb,var(--tone) 6%,transparent),transparent 55%);color:var(--primary-text-color);cursor:pointer;text-align:left}
+      .htile ha-icon{--mdc-icon-size:18px;color:var(--tone)}
+      .htile.warn{--tone:var(--warn)}
+      .htile.bad{--tone:var(--danger)}
       .htile-text{display:flex;flex-direction:column;min-width:0}
       .htile-text b{font-size:11px}
       .htile-text span{font-size:9px;color:var(--secondary-text-color)}
