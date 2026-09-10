@@ -1,0 +1,1 @@
+{"name":"ha-ops-status-card","version":"0.2.0","description":"Home Assistant Lovelace custom card","license":"MIT","scripts":{"check":"node --check ha-ops-status-card.js"}}
